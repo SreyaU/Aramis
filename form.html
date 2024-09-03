@@ -8,14 +8,44 @@
 </head>
 <body>
     <div class="nav-bar">
-        <div id="logo"></div>
-        <div id="nav-options">
-            <h4>Home</h4>
-            <h4>About Us</h4>
-            <h4>Contact Us</h4>
-            <h4>Login</h4>
+        <div class="nav-options">
+            <a href="">Home</a>
+            <a href="">About Us</a>
+            <a href="">Services</a>
+            <a href="">Contact Us</a>
+            <a href="">Login</a>
         </div>
         
+    </div>
+    <!--<div class="sidebar">
+            <h4>Home</h4>
+            <h4>About Us</h4>
+            <h4>Services</h4>
+            <h4>Support</h4>
+            <h4>Table</h4>
+    </div> -->
+    <div class="regbox">
+        <form class="regform">
+            <label for="fname">First name:</label><br>
+            <input type="text" id="fname" name="fname"><br><br>
+            <label for="lname">Last name:</label><br>
+            <input type="text" id="lname" name="lname"><br><br>
+            <label for="mailid">Email Id:</label><br>
+            <input type="email" id="mailid" name="mailid"><br><br>
+            <label for="dob">Date of Birth:</label><br>
+            <input type="date" id="dob" name="dob"><br><br>
+            <div class="gender">
+                <label for="gender">Gender:</label>
+                <input type="radio" id="male" name="gender" value="Male">
+                <label for="male">Male</label>
+                <input type="radio" id="female" name="gender" value="Female">
+                <label for="female">Female</label><br><br>
+            </div>
+            <label for="pwd">Password:</label><br>
+            <input type="password" id="pwd" name="pwd"><br>
+            <br><br>
+            <input type="submit" value="Submit">
+          </form>
     </div>
 </body>
 </html>
