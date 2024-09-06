@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration form</title>
     <link rel="stylesheet" href="form.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
     <div class="menu">
@@ -19,83 +20,55 @@
         
     </div>
     <div class="sidebar" id="sidebar">
-        <a href="/home">Home</a>
+        <a href="/index.html">Home</a>
         <a href="/home">About Us</a>
         <a href="/home">Services</a>
         <a href="/home">Support</a>
         <a href="/table.html">Table</a>
     </div>
+    <h2>Registration Form</h2>
     <div class="form">
         <form>
-    
+
             <label for="fname">First name:</label><br>
-            <input type="text" id="fname" name="fname"><br><br>
+            <input type="text" id="fname" name="fname" placeholder="Enter first name" size="30" required><br><br>
             <label for="lname">Last name:</label><br>
-            <input type="text" id="lname" name="lname"><br><br>
+            <input type="text" id="lname" name="lname" placeholder="Enter last name" size="30" required><br><br>
             <label for="mailid">Email Id:</label><br>
-            <input type="email" id="mailid" name="mailid"><br><br>
+            <input type="email" id="mailid" name="mailid" placeholder="Enter email address" size="30" required><br><br>
+            <label for="country">Choose your country:</label>
+            <select name="country" id="country">
+                <option value="India">India</option>
+                <option value="China">China</option>
+                <option value="Singapore">Singapore</option>
+                <option value="Japan">Japan</option>
+              </select><br><br>
             <label for="dob">Date of Birth:</label><br>
-            <input type="date" id="dob" name="dob"><br><br>
+            <input type="date" id="dob" name="dob" required><br><br>
             <div class="gender">
                 <label for="gender">Gender:</label>
                 <input type="radio" id="male" name="gender" value="Male">
                 <label for="male">Male</label>
                 <input type="radio" id="female" name="gender" value="Female">
-                <label for="female">Female</label><br><br>
+                <label for="female">Female</label>
+                <input type="radio" id="others" name="gender" value="Others">
+                <label for="others">Others</label><br><br>
             </div>
             <label for="pwd">Password:</label><br>
-            <input type="password" id="pwd" name="pwd"><br>
+            <input type="password" id="pwd" name="pwd" placeholder="Enter password" size="20" required><br>
+            <br>
+            <label for="file">Upload file:</label><br>
+            <input type="file" id="myFile" name="filename" accept ="image/jpeg, image/png, image/jpg" required>
+            <div class="imagepreview"></div>
+            <!-- <script src="script.js"></script> -->
             <br><br>
+            <input type="checkbox" id="terms" name="terms" value="Terms" required>
+            <label for="terms"> I agree to the <a>terms and conditions.</a></label><br><br>
             <div class="sub-button">
-                <input type="submit" value="Submit">
+                <button><a href="index.html">Back</a></button>
+                <input type="submit" value="Submit" onclick="validate()">
             </div>
           </form>
     </div>
-    <!-- <div class="content">
-        <div class="sidebar" id="sidebar">
-            <a href="/home">Home</a>
-            <a href="/home">About Us</a>
-            <a href="/home">Services</a>
-            <a href="/home">Support</a>
-            <a href="/table.html">Table</a>
-        </div>
-        <div class="regbox">
-            <h1>Registration Form</h1>
-            <div class="form">
-                <form>
-            
-                    <label for="fname">First name:</label><br>
-                    <input type="text" id="fname" name="fname"><br><br>
-                    <label for="lname">Last name:</label><br>
-                    <input type="text" id="lname" name="lname"><br><br>
-                    <label for="mailid">Email Id:</label><br>
-                    <input type="email" id="mailid" name="mailid"><br><br>
-                    <label for="dob">Date of Birth:</label><br>
-                    <input type="date" id="dob" name="dob"><br><br>
-                    <div class="gender">
-                        <label for="gender">Gender:</label>
-                        <input type="radio" id="male" name="gender" value="Male">
-                        <label for="male">Male</label>
-                        <input type="radio" id="female" name="gender" value="Female">
-                        <label for="female">Female</label><br><br>
-                    </div>
-                    <label for="pwd">Password:</label><br>
-                    <input type="password" id="pwd" name="pwd"><br>
-                    <br><br>
-                    <div class="sub-button">
-                        <input type="submit" value="Submit">
-                    </div>
-                  </form>
-            </div>
-        </div>
-    </div> -->
-    <script>
-        const toggleButton = document.getElementById('toggle-sidebar');
-        const sidebar= document.getElementById('sidebar');
-
-        toggleButton.addEventListener('click',() =>{
-            sidebar.classList.toggle('visible');
-        });
-    </script>
 </body>
 </html>
