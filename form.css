@@ -144,52 +144,59 @@ button{
     margin-right: auto;
     text-align: center;
 }
-table{
-    table-layout: fixed;
-    width: 70%;
-    text-align: center;
-    /* margin: auto; */
+/* new table style */
+table {
+    width: 95%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    margin-left: 30px;
     
-    margin-left: 100px;
+    /* /* border: 1px solid black; */
+    /* position: fixed; */
+    max-height: 100px;
+    overflow-y: auto;
+
+}
+
+th,
+td {
+    /* border: 1px solid #ddd; */
+    padding: 8px;
     border: 1px solid black;
     border-collapse: collapse;
-    /* position: absolute;
-    left: ; */
-    /* max-height: 100px;
-    overflow-y: auto; */
 }
-tbody{
-    max-height: 300px;
-    overflow: auto;
-}
+
+th {
+    /* background-color: #f2f2f2; */
+    background-color:rgb(39, 98, 188);
+    text-align: left;
+    color: white;
+} 
 tbody tr:nth-child(odd) {
     background-color: hsl(0, 0%, 100%);
   }
 tbody tr:nth-child(even) {
-    background-color: rgb(168, 187, 214);
-  }
-th{
-    /* background-color: #e8d3d3; */
-    background-color:rgb(39, 98, 188);
-    color: white;
-
+    background-color: rgb(202, 208, 218);
   }
   table, th, td {
     border: 1px solid black;
     border-collapse: collapse;
-  }
-th,td{
-    padding: 10px;
-    text-align: center;
-    border: 1px solid black;
-    border-collapse: collapse;
-}
+  } 
 
 .table h1{
-    align-items: center;
-   margin: 30px 0px 30px 60px;
+    align-items: left;
+   margin: 30px 0px 30px 30px;
    color:rgb(39, 98, 188);
+} 
+
+/* search in table */
+#searchval{
+    width: 250px;
+    height: 25px;
+    margin-left: 30px;
+
 }
+
 /* index page design */
 /* .ind-body{
     display: flex;

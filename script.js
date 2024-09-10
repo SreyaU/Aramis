@@ -1,10 +1,14 @@
+
+
+
+// toggle button
 const toggleButton = document.getElementById('toggle-sidebar');
 const sidebar= document.getElementById('sidebar');
 
 toggleButton.addEventListener('click',() =>{
     sidebar.classList.toggle('visible');
 });
-
+//image file upload
 document.getElementById('fileInput').addEventListener('change', function(event) {
     const file = event.target.files[0];
     const messageElement = document.getElementById('message');
@@ -18,7 +22,7 @@ document.getElementById('fileInput').addEventListener('change', function(event) 
         }
     }
 });
-
+//form validation
 function validate(){
     const name1 = document.getElementById('fname').value;
     const name2 = document.getElementById('lname').value;

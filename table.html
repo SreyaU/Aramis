@@ -1,95 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Table</title>
-    <link rel="stylesheet" href="form.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Products Table</title>
+    <link rel="stylesheet" href="form.css" />
+  </head>
+  <body>
+    <div class="table">
+      <table id="productTable">
+        <h1>Product List</h1>
+        <div class="searchtable">
+          <!-- <label for="search">Search :</label> -->
+          <input
+            type="text"
+            id="searchval"
+            name="searchval"
+            value=""
+            placeholder="Search for an item or brand"
+          />
+          <!-- <input type="submit" value="Submit" /> -->
+          <button id="searchbtn"></button>
+        </div>
 
-</head>
-<body>
-<div class="table">
-    <h1>Registration Data</h1>
-
-    <table>
+        <!--  -->
         <thead>
-            <tr>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Email address</th>
-                <th>Contact Number</th>
-              </tr>
+          <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Brand</th>
+          </tr>
         </thead>
-      <tbody>
-        <tr>
-            <td>Alfreds</td>
-            <td>Futterkiste</td>
-            <td>random1@gmail.com</td>
-            <td>7779866556</td>
-          </tr>
-          <tr>
-            <td>Hillary</td>
-           <td>Nyakundi</td>
-           <td>tables@mail.com</td>
-           <td>665659892</td>
-        
-          </tr>
-          <tr>
-            <td>Lary</td>
-            <td>Mak</td>
-            <td>developer@mail.com</td>
-            <td>656545434</td>
-          </tr>
-        
-          <tr>
-            <td>Maria</td>
-            <td>Anders</td>
-            <td>random2@gmail.com</td>
-            <td>634879892</td>
-          </tr>
-          <tr>
-            <td>Alfreds</td>
-            <td>Futterkiste</td>
-            <td>random1@gmail.com</td>
-            <td>7779866556</td>
-          </tr>
-          <tr>
-            <td>Hillary</td>
-           <td>Nyakundi</td>
-           <td>tables@mail.com</td>
-           <td>665659892</td>
-        
-          </tr>
-          <tr>
-            <td>Maria</td>
-            <td>Anders</td>
-            <td>random2@gmail.com</td>
-            <td>634879892</td>
-          </tr>
-          <tr>
-            <td>Alfreds</td>
-            <td>Futterkiste</td>
-            <td>random1@gmail.com</td>
-            <td>7779866556</td>
-          </tr>
-      
-          <tr>
-            <td>Maria</td>
-            <td>Anders</td>
-            <td>random2@gmail.com</td>
-            <td>634879892</td>
-          </tr>
-          <tr>
-            <td>Alfreds</td>
-            <td>Futterkiste</td>
-            <td>random1@gmail.com</td>
-            <td>7779866556</td>
-          </tr>
-         
-      </tbody>
-      
-    </table>
-</div>
-   
-</body>
+        <tbody></tbody>
+      </table>
+      <script>
+        let allProducts = [];
+        async function fetchProducts() {
+          try {
+            const response = await fetch("https://dummyjson.com/products");
+
+            // if (!response.ok) {
+            //   throw new Error('Network response was not ok ' + response.statusText);
+            // }
+
+            const data = await response.json();
+            allProducts = data.products;
+            displayProductsInTable(allProducts);
+          } catch (error) {
+            console.error("Fetch error:", error);
+          }
+        }
+
+        function displayProductsInTable(products) {
+          const tableBody = document.querySelector("#productTable tbody");
+
+          tableBody.innerHTML = "";
+
+          products.forEach((product) => {
+            const row = document.createElement("tr");
+
+            row.innerHTML = `
+                  <td>${product.id}</td>
+                  <td>${product.title}</td>
+                  <td>${product.description}</td>
+                  <td>$${product.price}</td>
+                  <td>${product.brand}</td>`;
+
+            tableBody.appendChild(row);
+          });
+        }
+
+        //filter function
+        let filterList =[]
+          function filterTable(query){
+            	const filterByTitle = allProducts.filter(product => {return product.id.toString() === query||product.title.toLowerCase().includes(query.toLowerCase())});
+              // || product.brand.toLowerCase().includes(query.toLowerCase())
+            displayProductsInTable(filterByTitle);
+          // const filterById = allProducts.filter(product => product.id.includes(query));
+          // displayProductsInTable(filterById);
+          // const filterByBrand = allProducts.filter(product => product.brand.toLowerCase().includes(query.toLowerCase()));
+          // displayProductsInTable(filterByBrand);
+         }
+         document.querySelector('#searchval').addEventListener('input', (e) =>
+         {
+          const query = e.target.value;
+          filterTable(query);
+         });
+
+        fetchProducts();
+      </script>
+    </div>
+  </body>
 </html>
